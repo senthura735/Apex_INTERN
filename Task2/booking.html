@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book a Trip</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <center>
+  <header>
+    <h1>Book Your Trip</h1>
+  </header>
+
+  <main>
+    <form id="bookingForm">
+      <input type="text" id="tripName" placeholder="Trip Name" required>
+      <input type="text" id="userName" placeholder="Your Name" required>
+      <input type="email" id="userEmail" placeholder="Email" required>
+      <button type="submit">Book Now</button>
+    </form>
+    <p id="confirmation" style="color: green; font-weight: bold;"></p>
+  </main>
+
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script src="firebase.js"></script>
+
+  <!-- Booking Form Script -->
+  <script>
+    const db = firebase.firestore();
+
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Get form values
+      const tripName = document.getElementById("tripName").value.trim();
+      const userName = document.getElementById("userName").value.trim();
+      const userEmail = document.getElementById("userEmail").value.trim();
+
+      // Save to Firestore
+      db.collection("bookings").add({
+        tripName,
+        userName,
+        userEmail,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      }).then(() => {
+        document.getElementById("confirmation").innerText = "✅ Booking Successful!";
+        document.getElementById("bookingForm").reset();
+      }).catch((error) => {
+        console.error("Error adding booking: ", error);
+        document.getElementById("confirmation").innerText = "❌ Booking Failed. Try again.";
+      });
+    });
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script src="firebase.js"></script>
+</center>
+</body>
+</html>
