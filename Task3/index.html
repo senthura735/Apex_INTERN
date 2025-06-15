@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Playground | ApexPlanet</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="blob-bg"></div>
+    <main>
+        <header>
+            <h1><span>Frontend</span> Playground</h1>
+            <p>Explore these interactive features</p>
+        </header>
+
+        <section class="card" id="responsive">
+            <div class="icon"><i class="fas fa-mobile-screen"></i></div>
+            <h2>Responsive Magic</h2>
+            <div class="responsive-boxes">
+                <div class="box"><i class="fas fa-mobile"></i> Mobile</div>
+                <div class="box"><i class="fas fa-tablet-screen-button"></i> Tablet</div>
+                <div class="box"><i class="fas fa-desktop"></i> Desktop</div>
+            </div>
+        </section>
+
+        <section class="card" id="quiz">
+            <div class="icon"><i class="fas fa-question-circle"></i></div>
+            <h2>JavaScript Quiz</h2>
+            <div id="quiz-container">
+                <div id="question-container" class="hide">
+                    <div id="question">What does CSS stand for?</div>
+                    <div id="answer-buttons" class="btn-grid"></div>
+                </div>
+                <div class="controls">
+                    <button id="start-btn" class="btn pulse"><i class="fas fa-play"></i> Start Quiz</button>
+                    <button id="next-btn" class="btn hide"><i class="fas fa-forward"></i> Next</button>
+                </div>
+                <div id="result" class="hide"></div>
+            </div>
+        </section>
+
+        <section class="card" id="api">
+            <div class="icon"><i class="fas fa-cloud-download-alt"></i></div>
+            <h2>API Fun Zone</h2>
+            <button id="fetch-btn" class="btn"><i class="fas fa-bolt"></i> Fetch Random Joke</button>
+            <div id="api-data" class="api-data">
+                <div class="loader hide"></div>
+                <div class="content"></div>
+            </div>
+        </section>
+
+        <section class="card" id="carousel">
+            <div class="icon"><i class="fas fa-images"></i></div>
+            <h2>Image Carousel</h2>
+            <div class="carousel">
+                <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-images">
+                    <img src="https://picsum.photos/id/10/800/400" alt="Nature 1" class="carousel-img active">
+                    <img src="https://picsum.photos/id/11/800/400" alt="Nature 2" class="carousel-img">
+                    <img src="https://picsum.photos/id/12/800/400" alt="Nature 3" class="carousel-img">
+                </div>
+                <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="carousel-dots"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
