@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Planet Travel Journal</title>
+  <style>
+    :root{--primary:#4a6fa5;--secondary:#ff7e5f;--light:#f8f9fa;--dark:#343a40;--shadow:0 4px 6px rgba(0,0,0,0.1)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Segoe UI',Roboto,sans-serif;line-height:1.6;color:#333;background-color:var(--light)}
+    header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:2rem 0;text-align:center;box-shadow:var(--shadow)}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    .nav-links{display:flex;justify-content:center;list-style:none;margin-top:1rem}
+    .nav-links li{margin:0 15px}
+    .nav-links a{color:white;text-decoration:none;font-weight:500;transition:all 0.3s ease}
+    .nav-links a:hover{color:#ffeb3b}
+    .hero{padding:3rem 0;text-align:center}
+    .btn{display:inline-block;background:var(--secondary);color:white;padding:0.6rem 1.2rem;border:none;border-radius:5px;cursor:pointer;transition:all 0.3s ease;text-decoration:none}
+    .btn:hover{background:#ff5722;transform:translateY(-3px)}
+    .featured-posts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin:3rem 0}
+    .post-card{background:white;border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:transform 0.3s ease}
+    .post-card:hover{transform:translateY(-5px)}
+    .post-img{width:100%;height:200px;object-fit:cover}
+    .post-content{padding:1.5rem}
+    .post-title{margin-bottom:0.5rem}
+    .post-excerpt{color:#666;margin-bottom:1rem}
+    .footer{background:var(--dark);color:white;text-align:center;padding:2rem 0;margin-top:3rem}
+    .back-btn{display:inline-block;margin-bottom:1.5rem;color:var(--primary);text-decoration:none;font-weight:bold;cursor:pointer}
+    .back-btn:hover{text-decoration:underline}
+    .full-post{background:white;padding:2rem;border-radius:8px;box-shadow:var(--shadow)}
+    .full-post img{max-width:100%;height:auto;margin:1rem 0;border-radius:4px}
+    @media(max-width:768px){.nav-links{flex-direction:column;align-items:center}.nav-links li{margin:5px 0}.hero{padding:2rem 0}.featured-posts{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Apex Planet Travel Journal</h1>
+      <p>Chronicles of an interstellar intern</p>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <h2>Discover the Wonders of Apex Planet</h2>
+      <p>Join me on my journey through this magnificent world during my internship</p>
+      <a href="#destinations" class="btn">Explore Destinations</a>
+    </div>
+  </section>
+
+  <section class="container" id="destinations">
+    <h2>Featured Travel Posts</h2>
+    <div class="featured-posts" id="posts-container">
+      <!-- Posts will be loaded dynamically -->
+    </div>
+  </section>
+
+  <section class="container" id="about">
+    <h2>About My Journey</h2>
+    <p>As an interstellar intern on Apex Planet, I've had the incredible opportunity to explore its diverse landscapes, meet its fascinating inhabitants, and document my experiences in this travel journal.</p>
+    <p>From the crystalline cities to the bioluminescent forests, every day brought new wonders and challenges.</p>
+  </section>
+
+  <section class="container" id="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <div style="margin-bottom:1rem;">
+        <label for="name">Name</label>
+        <input type="text" id="name" required style="width:100%;padding:0.5rem;border-radius:4px;border:1px solid #ddd;">
+      </div>
+      <div style="margin-bottom:1rem;">
+        <label for="email">Email</label>
+        <input type="email" id="email" required style="width:100%;padding:0.5rem;border-radius:4px;border:1px solid #ddd;">
+      </div>
+      <div style="margin-bottom:1rem;">
+        <label for="message">Message</label>
+        <textarea id="message" rows="4" required style="width:100%;padding:0.5rem;border-radius:4px;border:1px solid #ddd;"></textarea>
+      </div>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2023 Apex Planet Travel Journal. All rights reserved.</p>
+      <p>Final project of my interstellar internship</p>
+    </div>
+  </footer>
+
+  <script>
+    const posts = [
+      {id: 1, title: "Crystalline City", excerpt: "Exploring the shimmering towers of Apex's capital.", image: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=500&auto=format&fit=crop", content: `
+        <h2>Crystalline City</h2>
+        <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&auto=format&fit=crop" loading="lazy">
+        <p>The Crystalline City is the capital of Apex Planet, known for its towering structures made of light-refracting quartz that change color with the planet's twin suns.</p>`},
+      {id: 2, title: "Bioluminescent Forest", excerpt: "Night hike through the glowing flora of the western continent.", image: "https://images.unsplash.com/photo-1511497584788-876760111969?w=500&auto=format&fit=crop", content: `
+        <h2>Bioluminescent Forest</h2>
+        <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=800&auto=format&fit=crop" loading="lazy">
+        <p>The Bioluminescent Forest covers 30% of Apex Planet's western continent, with flora and fauna that emit soft blue and green light after sunset.</p>`},
+      {id: 3, title: "Floating Islands", excerpt: "Adventures in the anti-gravity archipelago.", image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=500&auto=format&fit=crop", content: `
+        <h2>Floating Islands</h2>
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&auto=format&fit=crop" loading="lazy">
+        <p>These islands float high above the Apex surface due to rare magnetic fields, providing breathtaking views and thrilling flights.</p>`},
+      {id: 4, title: "The Silicon Sea", excerpt: "Sailing across liquid computational substrates.", image: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=500&auto=format&fit=crop", content: `
+        <h2>The Silicon Sea</h2>
+        <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800&auto=format&fit=crop" loading="lazy">
+        <p>The Silicon Sea shimmers with intelligent nanofluid that responds to brainwave commands, making travel both meditative and interactive.</p>`}
+    ];
+
+    function renderPosts() {
+      const postsContainer = document.getElementById('posts-container');
+      postsContainer.innerHTML = '';
+      posts.forEach(post => {
+        const postEl = document.createElement('article');
+        postEl.className = 'post-card';
+        postEl.innerHTML = `
+          <img src="${post.image}" alt="${post.title}" class="post-img" loading="lazy">
+          <div class="post-content">
+            <h3 class="post-title">${post.title}</h3>
+            <p class="post-excerpt">${post.excerpt}</p>
+            <a href="#" class="btn" onclick="viewPost(${post.id})">Read More</a>
+          </div>
+        `;
+        postsContainer.appendChild(postEl);
+      });
+    }
+
+    function viewPost(id) {
+      const post = posts.find(p => p.id === id);
+      const postsContainer = document.getElementById('posts-container');
+      postsContainer.innerHTML = `
+        <article class="full-post">
+          <div class="back-btn" onclick="goBack()">← Back to All Destinations</div>
+          ${post.content}
+        </article>
+      `;
+    }
+
+    function goBack() {
+      renderPosts();
+      document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPosts();
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        alert(Thank you, ${name}! Your message has been sent. I'll respond to ${email} soon.);
+        this.reset();
+      });
+    });
+  </script>
+</body>
+</html>
